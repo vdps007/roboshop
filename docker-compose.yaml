@@ -31,7 +31,7 @@ volumes:
 
 services:
   web:
-    image: web:v1
+    image: web:v2
     container_name: web
     ports:
     - "80:80"
@@ -42,12 +42,12 @@ services:
     - mysql
     - shipping
   mongodb:
-    image: vdps/mongo:v1
+    image: vdps/mongo:v2
     container_name: mongo
     volumes:
     - mongodb:/data/db
   catalogue:
-    image: vdps/catalogue:v1
+    image: vdps/catalogue:v2
     container_name: catalogue
     depends_on:
     - mongodb
@@ -57,24 +57,24 @@ services:
     volumes:
     - redis:/data
   user:
-    image: vdps/user:v1
+    image: vdps/user:v2
     container_name: user
     depends_on:
     - mongodb
     - redis
   cart:
-    image: vdps/cart:v1
+    image: vdps/cart:v2
     container_name: cart
     depends_on:
     - redis
     - catalogue
   mysql:
-    image: vdps/mysql:v1
+    image: vdps/mysql:v2
     container_name: mysql
     volumes:
     - mysql:/var/lib/mysql
   shipping:
-    image: vdps/shipping:v1
+    image: vdps/shipping:v2
     container_name: shipping
     depends_on:
     - mysql
@@ -84,7 +84,7 @@ services:
     volumes:
     - rabbitmq:/var/lib/rabbitmq
   payment:
-    image: vdps/payment:v1
+    image: vdps/payment:v2
     container_name: payment
     depends_on:
     - rabbitmq
