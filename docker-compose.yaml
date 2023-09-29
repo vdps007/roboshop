@@ -31,7 +31,7 @@ volumes:
 
 services:
   web:
-    image: web:v2
+    image: vdps/web:v2
     container_name: web
     ports:
     - "80:80"
