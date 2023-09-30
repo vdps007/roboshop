@@ -42,8 +42,8 @@ services:
     - mysql
     - shipping
   mongodb:
-    image: mongo:v1
-    container_name: mongo
+    image: mongodb:v1
+    container_name: mongodb
     # volumes:
     # - mongodb:/data/db
   catalogue:
