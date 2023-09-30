@@ -2,32 +2,32 @@ version: "3.9"
 networks:
   test12:
     driver: bridge
-volumes:
-# This is equivalent to docker volume create [volume-name]. these are named volumes
-  mysql:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: /home/ec2-user/mysql
-  redis:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: /home/ec2-user/redis
-  rabbitmq:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: /home/ec2-user/rabbitmq
-  mongodb:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: /home/ec2-user/mongodb
+# volumes:
+# # This is equivalent to docker volume create [volume-name]. these are named volumes
+#   mysql:
+#     driver: local
+#     driver_opts:
+#       o: bind
+#       type: none
+#       device: /home/ec2-user/mysql
+#   redis:
+#     driver: local
+#     driver_opts:
+#       o: bind
+#       type: none
+#       device: /home/ec2-user/redis
+#   rabbitmq:
+#     driver: local
+#     driver_opts:
+#       o: bind
+#       type: none
+#       device: /home/ec2-user/rabbitmq
+#   mongodb:
+#     driver: local
+#     driver_opts:
+#       o: bind
+#       type: none
+#       device: /home/ec2-user/mongodb
 
 services:
   web:
@@ -44,8 +44,8 @@ services:
   mongodb:
     image: mongo:v1
     container_name: mongo
-    volumes:
-    - mongodb:/data/db
+    # volumes:
+    # - mongodb:/data/db
   catalogue:
     image: catalogue:v1
     container_name: catalogue
@@ -54,8 +54,8 @@ services:
   redis:
     image: redis
     container_name: redis
-    volumes:
-    - redis:/data
+    # volumes:
+    # - redis:/data
   user:
     image: user:v1
     container_name: user
@@ -71,8 +71,8 @@ services:
   mysql:
     image: mysql:v1
     container_name: mysql
-    volumes:
-    - mysql:/var/lib/mysql
+    # volumes:
+    # - mysql:/var/lib/mysql
   shipping:
     image: shipping:v1
     container_name: shipping
@@ -81,8 +81,8 @@ services:
   rabbitmq:
     image: rabbitmq
     container_name: rabbitmq
-    volumes:
-    - rabbitmq:/var/lib/rabbitmq
+    # volumes:
+    # - rabbitmq:/var/lib/rabbitmq
   payment:
     image: payment:v1
     container_name: payment
