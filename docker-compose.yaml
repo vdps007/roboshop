@@ -1,6 +1,6 @@
 version: "3.9"
 networks:
-  roboshop:
+  test12:
     driver: bridge
 volumes:
 # This is equivalent to docker volume create [volume-name]. these are named volumes
